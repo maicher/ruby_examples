@@ -45,3 +45,6 @@ Naming:
 
 Style/IfInsideElse:
   Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']

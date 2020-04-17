@@ -248,3 +248,6 @@ AR model performs needed coercions, time is changed to date, money gem's transfo
 
 Learn dry-types and dry-struct to be able to handle types freely, precisely, expicitly. Build own, custom primitive types
 and data containers (value objects, entities) that keep their consistency. 
+
+Other eg. height - cm/inch, weight - kg/lbs.
+ 
