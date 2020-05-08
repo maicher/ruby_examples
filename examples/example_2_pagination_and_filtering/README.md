@@ -74,7 +74,7 @@ Use this one on API - so that client (eg js app) can see precise information wha
 
 ### Architecture
 
-In short the invalid params are forbidden to enter our app.
+The app should process the request with invalid params.
 
 In order to implement it in the Rails apps, the GET params needs to be validated as soon as they enter the controller.
 

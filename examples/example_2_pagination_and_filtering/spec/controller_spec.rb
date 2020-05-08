@@ -16,8 +16,18 @@ RSpec.describe Controller do
         }
       end
 
-      it { expect(subject).to be_truthy }
+      it { expect(subject[:status]).to eq(422) }
+    end
 
+    context 'with valid params' do
+      let(:params) do
+        {
+          page: 1,
+          limit: 10
+        }
+      end
+
+      it { expect(subject[:status]).to eq(200) }
     end
   end
 end

@@ -18,19 +18,18 @@ class Controller
 
   def index
     validation = Contract.new.call(params)
-    binding.pry
 
     if validation.failure?
-      # render_unprocessable_entity(validation.errors)
-      # or
-      # redirect_to action: :index
-      # or
+      # Render 422 here:
+      return { status: 422, description: 'Invalid pagination params', content: validation.errors }
+
+      # or redirect omitting the invalid params:
       # redirect_to action: :index, **without_invalid_params(validation)
-      #
-      # return
     end
 
     # handle the request
+    #
+    { status: 200, content: {} }
   end
 
   private
@@ -39,9 +38,5 @@ class Controller
 
   def without_invalid_params(validation)
     validation.to_h.except(*validation.errors.to_h.keys)
-  end
-
-  def render_unprocessable_entity(description: 'Invalid input', content: nil)
-    render json: {}.merge(description: description, content: content).compact, status: :unprocessable_entity
   end
 end
